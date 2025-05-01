@@ -1,12 +1,16 @@
 package pl.edu.pwr.abis.domain;
 
-import TypyDanych.*;
 
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Embeddable;
+
+@Embeddable
 public class Dokument {
 
 	String nazwa;
-	DateTime dataUtworzenia;
-	DateTime dataModyfikacji;
+	LocalDateTime dataUtworzenia;
+	LocalDateTime dataModyfikacji;
 	String zawartosc;
 
 }

@@ -1,9 +1,15 @@
 package pl.edu.pwr.abis.domain;
 
-public class Plik {
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 
-	String nazwa;
-	Real rozmiar;
-	String rozszerzenie;
+@Embeddable
+public class Plik {
+    @Column(nullable = false)
+	private String nazwa;
+    @Column(nullable = false)
+	private Float rozmiar;
+    @Column(nullable = false)
+	private String rozszerzenie;
 
 }

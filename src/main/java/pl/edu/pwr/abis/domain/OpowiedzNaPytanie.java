@@ -1,6 +1,5 @@
 package pl.edu.pwr.abis.domain;
 
-import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -13,18 +12,20 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Kategoria {
+public class OpowiedzNaPytanie {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false)
-    private String nazwa;
+    private String odpowiedz;
 
-    @ManyToOne
-    @JoinColumn(name = "edycja_id", nullable = false)
-    private EdycjaKonkursu edycjaKonkursu;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "raport_id", nullable = false)
+    private RaportWizytyStudyjnej raport;
 
-    @OneToMany(mappedBy = "kategoria")
-    private List<Projekt> projekty;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "pytanie_id", nullable = false)
+    private PytanieNaWizyteStudyjna pytanie;
 }

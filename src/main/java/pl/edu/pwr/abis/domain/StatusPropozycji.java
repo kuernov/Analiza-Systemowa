@@ -1,8 +1,8 @@
 package pl.edu.pwr.abis.domain;
 
 public enum StatusPropozycji {
-	wst?pniePrzyj?taPrzezEksperta,
-	potwierdzonaUmow?,
+	wstepniePrzyjetaPrzezEksperta,
+	potwierdzonaUmowa,
 	odrzuconaPrzezEksperta,
 	brakOdpowiedzi
 }

@@ -4,9 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
-public class DaneZarzadzajacegoAplikantem extends DaneKontaktowe {
-
+public class Osoba {
     @Column(nullable = false)
-	private String stanowisko;
-
+    private DaneKontaktowe daneKontaktowe;
 }

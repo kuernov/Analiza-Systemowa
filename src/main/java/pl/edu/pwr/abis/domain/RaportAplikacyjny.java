@@ -1,4 +1,10 @@
 package pl.edu.pwr.abis.domain;
 
-public class RaportAplikacyjny extends Dokument {
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+
+@Embeddable
+public class RaportAplikacyjny {
+    @Column(nullable = false)
+    private Boolean czyZatwierdzony = false;
 }

@@ -1,10 +1,18 @@
 package pl.edu.pwr.abis.domain;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+
+@Embeddable
 public class Adres {
 
-	String ulica;
-	String kodPocztowyLubMiasto;
-	String wojewodztwo;
-	String kraj;
+    @Column(nullable = false)
+	private String ulica;
+    @Column(nullable = false)
+	private String kodPocztowyLubMiasto;
+    @Column(nullable = false)
+	private String wojewodztwo;
+    @Column(nullable = false)
+	private String kraj;
 
 }

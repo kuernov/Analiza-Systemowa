@@ -1,30 +1,29 @@
 package pl.edu.pwr.abis.domain;
 
 import java.util.List;
-import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Kategoria {
+public class PytanieNaWizyteStudyjna {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false)
-    private String nazwa;
+    private String tresc;
 
-    @ManyToOne
-    @JoinColumn(name = "edycja_id", nullable = false)
-    private EdycjaKonkursu edycjaKonkursu;
+    //trzeba jakos konkretnie zrobic not nullable?
+    @ManyToMany(mappedBy = "pytania")
+    private List<CzlonekJury> autorzy;
 
-    @OneToMany(mappedBy = "kategoria")
-    private List<Projekt> projekty;
+    @OneToMany
+    private List<OpowiedzNaPytanie> odpowiedzi;
 }

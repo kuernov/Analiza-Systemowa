@@ -4,6 +4,6 @@ public class PropozycjaWspolpracy {
 
 	Boolean czyAsesorWiodacy;
 	StatusPropozycji statusPropozycji;
-	Data dataZ?o?enia;
+	Data dataZlozenia;
 
 }
