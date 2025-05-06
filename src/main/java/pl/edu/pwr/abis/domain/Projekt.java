@@ -15,6 +15,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -64,4 +65,6 @@ public class Projekt {
     @OneToOne(mappedBy = "projekt", cascade = CascadeType.REMOVE)
     private FormularzAplikacyjny formularzAplikacyjny;
 
+    @OneToMany(mappedBy = "projekt", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PropozycjaWspolpracy> propozycjeWspolpracy;
 }

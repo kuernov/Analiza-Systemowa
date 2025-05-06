@@ -7,10 +7,8 @@ import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class Dokument {
-
-	String nazwa;
-	LocalDateTime dataUtworzenia;
-	LocalDateTime dataModyfikacji;
-	String zawartosc;
-
+	private String nazwa;
+    private LocalDateTime dataUtworzenia;
+    private LocalDateTime dataModyfikacji;
+    private String zawartosc;
 }

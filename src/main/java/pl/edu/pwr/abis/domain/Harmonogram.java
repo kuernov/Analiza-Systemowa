@@ -12,8 +12,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Table(name = "harmonogram")
+@Getter
+@Setter
 public class Harmonogram {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +31,9 @@ public class Harmonogram {
     private LocalDateTime DataRaportuZWizytyStudyjnej;
     private LocalDateTime DataOcenyKoncowej;
     private LocalDateTime dataWizytyStudyjnej;
+
+    public Harmonogram() {
+    }
 
     @OneToMany(mappedBy = "harmonogram", cascade = CascadeType.REMOVE)
     private List<Webinarium> webinaria = new ArrayList<>();

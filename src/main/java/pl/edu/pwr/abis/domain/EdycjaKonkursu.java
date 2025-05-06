@@ -29,9 +29,8 @@ public class EdycjaKonkursu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, updatable = false) //czy readOnly tak ma być?
+    @Column(nullable = false, updatable = false)
     private Integer numerEdycji;
-
 
     @Column(nullable = false)
     private String nazwa;
@@ -55,10 +54,17 @@ public class EdycjaKonkursu {
     @Enumerated(EnumType.STRING)
     private StatusEdycji statusEdycji;
 
+    @Embedded
     private Dokument listaFinalistow;
-	private Dokument ulotka;
-	private Dokument regulamin;
-	private Dokument wynikiKonkursu;
+
+    @Embedded
+	  private Dokument ulotka;
+
+    @Embedded
+	  private Dokument regulamin;
+
+    @Embedded
+	  private Dokument wynikiKonkursu;
 
     @OneToOne(cascade = CascadeType.REMOVE)
     private Harmonogram harmonogram;
@@ -79,7 +85,4 @@ public class EdycjaKonkursu {
 
     @OneToMany(mappedBy = "edycjaKonkursu")
     private List<CzlonekJury> czlonkowieJury;
-
-
-
 }
