@@ -49,7 +49,6 @@ public class Projekt {
     @Column(nullable = false)
     private Boolean czyOplacony;
 
-
     private String powodOdrzucenia;
 
     @Embedded
@@ -72,4 +71,7 @@ public class Projekt {
     @OneToMany(mappedBy = "projekt")
     @MapKey(name = "projekt.nazwa") // nie wiem czy to działa - w przykładach nie ma przypadku z many-many?
     private Set<OcenaIndywidualna> ocenyIndywidualne = new HashSet<>();
+
+    @ManyToOne(mappedBy = "projekt", cascade = CascadeType.REMOVE, optional = true)
+    private OcenaKoncowa ocenaKoncowa;
 }
