@@ -11,8 +11,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "aplikant")
 public class Aplikant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,4 +44,7 @@ public class Aplikant {
     @JoinColumn(name = "edytor_id", nullable = false)
     private SystemKsiegowy systemKsiegowy;
 
+    @ManyToOne
+    @JoinColumn(name = "aplikant_id", nullable = false)
+    private Organizacja organizacja;
 }

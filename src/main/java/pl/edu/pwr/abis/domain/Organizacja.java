@@ -39,6 +39,9 @@ public class Organizacja {
     @OneToMany(mappedBy = "organizacja")
     private List<EkspertIPMA> eksperci;
 
+    @OneToMany(mappedBy = "organizacja")
+    private List<Aplikant> aplikanci;
+
     public Organizacja() {
     }
 }

@@ -15,6 +15,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapKey;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
@@ -67,4 +68,8 @@ public class Projekt {
 
     @OneToMany(mappedBy = "projekt", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PropozycjaWspolpracy> propozycjeWspolpracy;
+
+    @OneToMany(mappedBy = "projekt")
+    @MapKey(name = "projekt.nazwa") // nie wiem czy to działa - w przykładach nie ma przypadku z many-many?
+    private Set<OcenaIndywidualna> ocenyIndywidualne = new HashSet<>();
 }
