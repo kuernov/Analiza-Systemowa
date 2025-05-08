@@ -27,4 +27,7 @@ public class RaportWizytyStudyjnej {
 
     @OneToMany(mappedBy = "raport", cascade = CascadeType.REMOVE)
     private List<OpowiedzNaPytanie> odpowiedzi;
+
+    @OneToOne()
+    private Projekt projekt;
 }

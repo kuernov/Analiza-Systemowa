@@ -1,6 +1,8 @@
 package pl.edu.pwr.abis.domain;
 
 @Entity
+@Getter
+@Setter
 public class OcenaKoncowa extends Ocena {
 	@Column(nullable = false)
     @Enumerated(EnumType.STRING)

@@ -1,12 +1,16 @@
 package pl.edu.pwr.abis.domain;
 
+@Entity
+@Getter
+@Setter
 public class OcenaPEM {
 
-	Real ocenaLiC;
-	Real ocenaPiZ;
-	Real ocenaRP;
-	String uzasadnienieLiC;
-	String uzasadnieniePiZ;
-	String uzasadnienieRP;
+	@Column(nullable = false)
+	private Integer liczbaPunktow;
+	
+	@Column(nullable = false)
+	private String uzasadnieniePunktacji;
 
+	@ManyToOne(optional = false)
+	private Ocena ocena;
 }

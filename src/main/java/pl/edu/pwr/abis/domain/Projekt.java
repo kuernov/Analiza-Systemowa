@@ -74,4 +74,10 @@ public class Projekt {
 
     @ManyToOne(mappedBy = "projekt", cascade = CascadeType.REMOVE, optional = true)
     private OcenaKoncowa ocenaKoncowa;
+
+    @OneToOne(mappedBy = "projekt", cascade = CascadeType.REMOVE, optional = true)
+    private Ocena ocenaWstepna;
+
+    @OneToOne(mappedBy = "projekt", cascade = CascadeType.REMOVE, optional = true)
+    private RaportWizytyStudyjnej raportWizytyStudyjnej;
 }
