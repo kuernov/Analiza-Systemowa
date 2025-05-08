@@ -14,6 +14,6 @@ public class SystemKsiegowy {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "aplikant")
+    @OneToMany(mappedBy = "systemKsiegowy")
     private List<Aplikant> aplikanci;
 }

@@ -20,9 +20,9 @@ public class OcenaKoncowa extends Ocena {
     @Enumerated(EnumType.STRING)
 	StatusOcenyKoncowej status;
 
-	@OneToMany(mappedBy = "RaportOcenyKoncowej", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "ocenaKoncowa", cascade = CascadeType.REMOVE)
 	private List<RaportOcenyKoncowej> raportOcenyKoncowej;
 
 	@ManyToOne(optional = true)
-	private List<Projekt> projekt;
+	private Projekt projekt;
 }

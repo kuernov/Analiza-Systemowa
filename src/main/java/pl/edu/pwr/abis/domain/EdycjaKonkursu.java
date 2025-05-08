@@ -3,6 +3,8 @@ package pl.edu.pwr.abis.domain;
 import java.time.LocalDateTime;
 import java.util.*;
 
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
@@ -29,7 +31,7 @@ public class EdycjaKonkursu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false, unique = true)
     private Integer numerEdycji;
 
     @Column(nullable = false)
@@ -55,21 +57,45 @@ public class EdycjaKonkursu {
     private StatusEdycji statusEdycji;
 
     @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "nazwa", column = @Column(name = "lista_finalistow_nazwa")),
+        @AttributeOverride(name = "dataUtworzenia", column = @Column(name = "lista_finalistow_data_utworzenia")),
+        @AttributeOverride(name = "dataModyfikacji", column = @Column(name = "lista_finalistow_data_modyfikacji")),
+        @AttributeOverride(name = "zawartosc", column = @Column(name = "lista_finalistow_zawartosc"))
+    })
     private Dokument listaFinalistow;
 
     @Embedded
-	  private Dokument ulotka;
+    @AttributeOverrides({
+        @AttributeOverride(name = "nazwa", column = @Column(name = "ulotka_nazwa")),
+        @AttributeOverride(name = "dataUtworzenia", column = @Column(name = "ulotka_data_utworzenia")),
+        @AttributeOverride(name = "dataModyfikacji", column = @Column(name = "ulotka_data_modyfikacji")),
+        @AttributeOverride(name = "zawartosc", column = @Column(name = "ulotka_zawartosc"))
+    })
+    private Dokument ulotka;
 
     @Embedded
-	  private Dokument regulamin;
+    @AttributeOverrides({
+        @AttributeOverride(name = "nazwa", column = @Column(name = "regulamin_nazwa")),
+        @AttributeOverride(name = "dataUtworzenia", column = @Column(name = "regulamin_data_utworzenia")),
+        @AttributeOverride(name = "dataModyfikacji", column = @Column(name = "regulamin_data_modyfikacji")),
+        @AttributeOverride(name = "zawartosc", column = @Column(name = "regulamin_zawartosc"))
+    })
+    private Dokument regulamin;
 
     @Embedded
-	  private Dokument wynikiKonkursu;
+    @AttributeOverrides({
+        @AttributeOverride(name = "nazwa", column = @Column(name = "wyniki_konkursu_nazwa")),
+        @AttributeOverride(name = "dataUtworzenia", column = @Column(name = "wyniki_konkursu_data_utworzenia")),
+        @AttributeOverride(name = "dataModyfikacji", column = @Column(name = "wyniki_konkursu_data_modyfikacji")),
+        @AttributeOverride(name = "zawartosc", column = @Column(name = "wyniki_konkursu_zawartosc"))
+    })
+    private Dokument wynikiKonkursu;
 
     @OneToOne(cascade = CascadeType.REMOVE)
     private Harmonogram harmonogram;
 
-    @OneToMany(mappedBy = "edycja", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "edycjaKonkursu", cascade = CascadeType.REMOVE)
     private Set<Kategoria> kategorie;
 
     @OneToMany

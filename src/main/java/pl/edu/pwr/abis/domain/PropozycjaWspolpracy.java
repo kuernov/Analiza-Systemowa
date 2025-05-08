@@ -34,6 +34,6 @@ public class PropozycjaWspolpracy {
     private EkspertIPMA ekspertIPMA;
 
     @ManyToOne
-    @MapsId("projekt")
+    @MapsId("projektId")
     private Projekt projekt;
 }

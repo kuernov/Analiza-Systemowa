@@ -1,0 +1,23 @@
+{
+  "groups": [
+    {
+      "name": "application",
+      "type": "pl.edu.pwr.abis.config.ApplicationProperties",
+      "sourceType": "pl.edu.pwr.abis.config.ApplicationProperties"
+    },
+    {
+      "name": "application.liquibase",
+      "type": "pl.edu.pwr.abis.config.ApplicationProperties$Liquibase",
+      "sourceType": "pl.edu.pwr.abis.config.ApplicationProperties",
+      "sourceMethod": "getLiquibase()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "application.liquibase.async-start",
+      "type": "java.lang.Boolean",
+      "sourceType": "pl.edu.pwr.abis.config.ApplicationProperties$Liquibase"
+    }
+  ],
+  "hints": []
+}

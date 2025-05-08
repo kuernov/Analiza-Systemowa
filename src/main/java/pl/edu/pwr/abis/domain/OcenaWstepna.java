@@ -2,7 +2,7 @@ package pl.edu.pwr.abis.domain;
 
 public class OcenaWstepna {
 
-	StatusWersji status;
+	//StatusWersji status;
 	OcenaPEM ocena;
 
 }

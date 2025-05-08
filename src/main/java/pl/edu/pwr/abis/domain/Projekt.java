@@ -73,7 +73,7 @@ public class Projekt {
     private Set<OcenaIndywidualna> ocenyIndywidualne = new HashSet<>();
 
     @OneToMany(mappedBy = "projekt", cascade = CascadeType.REMOVE)
-    private OcenaKoncowa ocenaKoncowa;
+    private List<OcenaKoncowa> ocenaKoncowa;
 
     @OneToOne(mappedBy = "projekt", cascade = CascadeType.REMOVE, optional = true)
     private Ocena ocenaWstepna;

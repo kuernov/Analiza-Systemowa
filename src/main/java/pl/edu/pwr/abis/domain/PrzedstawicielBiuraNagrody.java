@@ -20,7 +20,7 @@ public class PrzedstawicielBiuraNagrody extends Uzytkownik {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToMany(mappedBy = "przedstawiciele")
+    @ManyToMany(mappedBy = "przedstawicieleBiuraNagrody")
     private List<EdycjaKonkursu> edycjeKonkursu;
 
     @Override
